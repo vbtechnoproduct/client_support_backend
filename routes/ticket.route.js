@@ -10,6 +10,7 @@ const checkAccessWithSecretKey = require("../util/checkAccess");
 
 //create developer
 route.post("/createTicket",  TicketController.createTicket);
+route.post("/createTicket",  TicketController.createTicket);
 
 //ticket closed by developer (when issue has been resolved)
 route.patch("/ticketSolved",  TicketController.ticketSolved);
