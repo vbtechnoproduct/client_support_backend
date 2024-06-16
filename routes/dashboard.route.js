@@ -9,6 +9,6 @@ const DashboardController = require("../controllers/dashboard.controller");
 const checkAccessWithSecretKey = require("../util/checkAccess");
 
 //get dashboard count for admin
-route.get("/dashboardCount", checkAccessWithSecretKey(), DashboardController.dashboardCount);
+route.get("/dashboardCount",  DashboardController.dashboardCount);
 
 module.exports = route;

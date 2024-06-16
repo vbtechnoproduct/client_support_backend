@@ -14,24 +14,24 @@ const storage = require("../util/multer");
 const upload = multer({ storage });
 
 //developer login
-route.post("/login", checkAccessWithSecretKey(), DeveloperController.login);
+route.post("/login",  DeveloperController.login);
 
 //create developer
-route.post("/create", upload.single("image"), checkAccessWithSecretKey(), DeveloperController.create);
+route.post("/create", upload.single("image"),  DeveloperController.create);
 
 //update developer
-route.patch("/update", upload.single("image"), checkAccessWithSecretKey(), DeveloperController.update);
+route.patch("/update", upload.single("image"),  DeveloperController.update);
 
 //delete developer
-route.delete("/delete", checkAccessWithSecretKey(), DeveloperController.destroy);
+route.delete("/delete",  DeveloperController.destroy);
 
 //get all developers
-route.get("/getAll", checkAccessWithSecretKey(), DeveloperController.getAll);
+route.get("/getAll",  DeveloperController.getAll);
 
 //get developer (dropdown)
-route.get("/getDeveloper", checkAccessWithSecretKey(), DeveloperController.getDeveloper);
+route.get("/getDeveloper",  DeveloperController.getDeveloper);
 
 //get particular developer profile
-route.get("/getDevProfile", checkAccessWithSecretKey(), DeveloperController.getDevProfile);
+route.get("/getDevProfile",  DeveloperController.getDevProfile);
 
 module.exports = route;

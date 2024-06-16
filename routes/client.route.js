@@ -9,9 +9,9 @@ const ClientController = require("../controllers/client.controller");
 const checkAccessWithSecretKey = require("../util/checkAccess");
 
 //get all client
-route.get("/getClients", checkAccessWithSecretKey(), ClientController.getClients);
+route.get("/getClients",  ClientController.getClients);
 
 //update fcmToken of client
-route.patch("/updatefcmToken", checkAccessWithSecretKey(), ClientController.updatefcmToken);
+route.patch("/updatefcmToken",  ClientController.updatefcmToken);
 
 module.exports = route;

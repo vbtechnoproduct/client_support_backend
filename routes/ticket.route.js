@@ -9,21 +9,21 @@ const TicketController = require("../controllers/ticket.controller");
 const checkAccessWithSecretKey = require("../util/checkAccess");
 
 //create developer
-route.post("/createTicket", checkAccessWithSecretKey(), TicketController.createTicket);
+route.post("/createTicket",  TicketController.createTicket);
 
 //ticket closed by developer (when issue has been resolved)
-route.patch("/ticketSolved", checkAccessWithSecretKey(), TicketController.ticketSolved);
+route.patch("/ticketSolved",  TicketController.ticketSolved);
 
 //ticket closed by admin
-route.patch("/ticketClose", checkAccessWithSecretKey(), TicketController.ticketClose);
+route.patch("/ticketClose",  TicketController.ticketClose);
 
 //ticket reopen by admin
-route.patch("/reOpenTicket", checkAccessWithSecretKey(), TicketController.reOpenTicket);
+route.patch("/reOpenTicket",  TicketController.reOpenTicket);
 
 //get all tickets
-route.get("/getTickets", checkAccessWithSecretKey(), TicketController.getTickets);
+route.get("/getTickets",  TicketController.getTickets);
 
 //get tickets of particular developer
-route.get("/getTicketsOfDeveloper", checkAccessWithSecretKey(), TicketController.getTicketsOfDeveloper);
+route.get("/getTicketsOfDeveloper",  TicketController.getTicketsOfDeveloper);
 
 module.exports = route;
