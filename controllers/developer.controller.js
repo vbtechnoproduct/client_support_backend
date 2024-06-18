@@ -21,8 +21,11 @@ function generateRandomPin() {
 exports.create = async (req, res) => {
   try {
     if (!req.body.name || !req.file) {
+      console.log("Name not ==========");
       if (req.file) deleteFile(req.file);
-      return res.status(200).json({ status: false, message: "Oops ! Invalid details!" });
+      return res
+        .status(200)
+        .json({ status: false, message: "Oops ! Invalid details!" });
     }
 
     const developer = new Developer();
@@ -32,6 +35,7 @@ exports.create = async (req, res) => {
     } else {
       developer.image = req.body.image;
     }
+    console.log("Found = ==========");
 
     developer.name = req?.body?.name;
     developer.fcmToken = req?.body?.fcmToken;
@@ -39,11 +43,19 @@ exports.create = async (req, res) => {
     developer.pin = generateRandomPin();
     await developer.save();
 
-    return res.status(200).json({ status: true, message: "finally, developer has been created.", data: developer });
+    return res
+      .status(200)
+      .json({
+        status: true,
+        message: "finally, developer has been created.",
+        data: developer,
+      });
   } catch (error) {
     if (req.file) deleteFile(req.file);
     console.log(error);
-    return res.status(500).json({ status: false, error: error.message || "Internal Server Error" });
+    return res
+      .status(500)
+      .json({ status: false, error: error.message || "Internal Server Error" });
   }
 };
 
