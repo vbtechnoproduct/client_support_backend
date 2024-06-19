@@ -2,7 +2,7 @@
 const mongoose = require("mongoose");
 
 mongoose.connect(
-  `your_mongodb_string`,
+  `mongodb+srv://vbtecho002:Rushit7265@cluster0.giednyz.mongodb.net/client_support`,
   {
     useNewUrlParser: true,
     useUnifiedTopology: true,
